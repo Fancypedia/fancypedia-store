@@ -1,19 +1,16 @@
-// Mengambil data dari file JSON menggunakan fetch
-fetch('../filejson/about.json') // Ganti 'data.json' dengan path ke file JSON Anda
-.then(response => {
-  // Periksa apakah responsenya sukses
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  // Parse responsenya sebagai JSON
-  return response.json();
-})
-.then(data => {
-  // Mengisi elemen HTML dengan data JSON
-  document.getElementById('aboutFancypediaDescription').textContent = data.servicesInfo.aboutFancypedia.description;
-  document.getElementById('themeDescription').textContent = data.servicesInfo.theme.description;
-})
-.catch(error => {
-  // Tangani kesalahan jika ada
-  console.error('Error:', error);
-});
+// Fungsi untuk mengambil dan menampilkan data dari JSON
+async function fetchData() {
+    try {
+        const response = await fetch('https://raw.githubusercontent.com/Fancypedia/fancypedia-store/main/filejson/about.json'); // Ganti 'url_ke_file_json' dengan URL tempat file JSON Anda disimpan
+        const data = await response.json();
+
+        // Mengisi elemen HTML dengan data JSON
+        document.getElementById('aboutFancypediaDescription').textContent = data.aboutFancypediaDescription;
+        document.getElementById('themeDescription').textContent = data.themeDescription;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Memanggil fungsi fetchData untuk mengambil data JSON
+fetchData();
