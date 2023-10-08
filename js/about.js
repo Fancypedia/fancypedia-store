@@ -1,5 +1,5 @@
 // Mengambil data dari file JSON menggunakan fetch
-fetch('https://raw.githubusercontent.com/Fancypedia/fancypedia-store/main/filejson/about.json') // Ganti 'data.json' dengan path ke file JSON Anda
+fetch('../filejson/about.json') // Ganti 'data.json' dengan path ke file JSON Anda
 .then(response => {
   // Periksa apakah responsenya sukses
   if (!response.ok) {
