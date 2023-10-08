@@ -52,12 +52,11 @@ setInner("waktuPelaksanaan", `
 <p>${data.article.waktuPelaksanaan}</p>
 `);
 
-//Kesimpulan
-setInner("kesimpulan", `
-<h2>Kesimpulan</h2>
-<p>${data.article.kesimpulan}</p>
-<p>${data.article.kesimpulan2}</p>
-<p>${data.article.kesimpulan3}</p>
+//jadwalPelaksanaan
+setInner("jadwalPelaksanaan", `
+<h2>Jadwal Pelaksanaan</h2>
+<img>${data.article.jadwalimgelaksanaan}</img>
 `);
+
 
 // app.js
