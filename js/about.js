@@ -1,7 +1,7 @@
 // Fungsi untuk mengambil dan menampilkan data dari JSON
 async function fetchData() {
     try {
-        const response = await fetch('../filejson/about.json'); // Ganti 'path/to/your/json/file.json' dengan path menuju file JSON Anda
+        const response = await fetch('https://raw.githubusercontent.com/Fancypedia/fancypedia-store/main/filejson/about.json'); // Ganti 'path/to/your/json/file.json' dengan path menuju file JSON Anda
         const data = await response.json();
 
         // Mengisi elemen HTML dengan data JSON
