@@ -100,6 +100,19 @@ p {
   font-weight: var(--font-weight-light);
 }
 
+#contentid {
+  color: white;
+}
+#contentid h2{
+  color: white;
+}
+#contentid li{
+  color: white;
+}
+#contentid p{
+  color: white;
+}
+
 ul li {
   color: var(--p-color);
   font-size: var(--p-font-size);
@@ -551,7 +564,7 @@ strong {
   TICKET               
 -----------------------------------------*/
 .ticket-section {
-  background-image: url('../assets/img/bg-contact.png');
+  background-image: url('../assets/img/bg-proposal.png');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
