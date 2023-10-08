@@ -1,16 +1,34 @@
-// Fungsi untuk mengambil dan menampilkan data dari JSON
-async function fetchData() {
-    try {
-        const response = await fetch('https://raw.githubusercontent.com/Fancypedia/fancypedia-store/main/filejson/about.json'); // Ganti 'path/to/your/json/file.json' dengan path menuju file JSON Anda
-        const data = await response.json();
+document.addEventListener("DOMContentLoaded", () => {
+    const servicesInfoContainer = document.querySelector('.services-info');
 
-        // Mengisi elemen HTML dengan data JSON
-        document.getElementById('aboutFancypediaDescription').textContent = data.servicesInfo.aboutFancypedia.description;
-        document.getElementById('themeDescription').textContent = data.servicesInfo.theme.description;
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
+    // Fetch data from the JSON file
+    fetch("../filejson/about.json")
+        .then(response => response.json())
+        .then(data => {
+            const aboutFancypedia = data.servicesInfo.aboutFancypedia;
 
-// Memanggil fungsi fetchData untuk mengambil data JSON dan menampilkan ke dalam elemen HTML
-fetchData();
+            // Update HTML elements with fetched data
+            const titleElement = document.createElement('h2');
+            titleElement.classList.add('text-white', 'mb-4');
+            titleElement.textContent = aboutFancypedia.title;
+            servicesInfoContainer.appendChild(titleElement);
+
+            const descriptionParagraph1 = document.createElement('p');
+            descriptionParagraph1.classList.add('text-white');
+            descriptionParagraph1.textContent = aboutFancypedia.description;
+            servicesInfoContainer.appendChild(descriptionParagraph1);
+
+            const themeTitleElement = document.createElement('h6');
+            themeTitleElement.classList.add('text-white', 'mt-4');
+            themeTitleElement.textContent = data.servicesInfo.theme.title;
+            servicesInfoContainer.appendChild(themeTitleElement);
+
+            const themeDescriptionParagraph = document.createElement('p');
+            themeDescriptionParagraph.classList.add('text-white');
+            themeDescriptionParagraph.textContent = data.servicesInfo.theme.description;
+            servicesInfoContainer.appendChild(themeDescriptionParagraph);
+        })
+        .catch(error => {
+            console.error("Error fetching data: ", error);
+        });
+});
